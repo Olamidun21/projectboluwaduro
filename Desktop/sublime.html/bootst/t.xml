@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Multiplication Table</title>
+		<link type="text/css" rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.css" />
+        <script src="bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+        <style>
+        body{
+        	background-color: #131422;
+        	color:white;
+        	padding: 180px;
+        	
+        }
+        .btn{
+        	margin-left: 30%;
+        }
+        legend{
+        	text-align: center;
+        	color:#7E7EBC;
+        }
+        </style>
+    </head>
+	<body class="container" id="body">
+	<div class="col-md-4"></div>
+	<div class="col-md-4">
+	<form class="form-horizontal" role="form">
+		<fieldset>
+			<legend>Multiplication Table</legend>
+			<div class="form-group">
+			<label for="blocks">Enter no. of blocks: </label>
+			<input type="text" name="blocks" id="blocks" class="form-control" />
+			</div>
+			<div class="form-group">
+			<label for="lines">Enter no. of lines:</label> 
+			<input type="text" name="lines" id="lines"  class="form-control" /><br />
+			</div>
+			<button type="button" class="btn btn-primary" onclick="generate()">GENERATE</button>
+		</fieldset>	
+		</form>
+		<div class="col-md-4"></div>
+		<div class="row">
+		<div class="col-md-12">
+			<div id="disp"></div>
+		</div>
+		</div>
+	<script>
+	
+	function generate()
+	{
+		nlines = document.getElementById("lines").value;
+		nblocks = document.getElementById("blocks").value;
+			document.write("<table border='1'>");
+			for(m=1; m<=nlines; m++)
+			{
+				document.write("<tr>");
+				for(n=1; n<=nblocks; n++)
+				{
+					solution = n*m;
+					display = n+' x '+m+' = '+solution;
+					document.write("<td>"+display+"</td>");
+				}
+				document.write("</tr>");
+			}
+			document.write("</table>");
+	}
+
+	// function generate(){
+	// 	var myTable = document.createElement("table");
+	// 	myTable.className = "table table-bordered";
+
+	// 	document.getElementById("disp").appendChild(myTable);
+	// 	for(var n = 0; n<=10;n++){
+	// 	myTable.innerHTML += "<tr><td>sdf</td></tr>";
+	// }
+	// }
+
+	</script>
+
+	</body>
+</html>

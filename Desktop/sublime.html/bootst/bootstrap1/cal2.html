@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style type="text/css">
+    body{background-color: #ffffff;margin: 0;padding: 0;}
+    input:focus,button:focus{outline: none;}
+    #container{width: 250px; height: 275px; background: #CED8E7; margin:10px auto;box-shadow: 0 2px 5px 0 yellow; border-top-left-radius: 10px;border-top-right-radius: 10px}
+    div{box-sizing: border-box;}
+         .header{width: 80%;
+            padding-top:30px;padding-bottom: 0}
+            .header::after{display: block;content: "";
+            clear: both;}
+            #nokia{color: white}
+                .header .input input{width: 210px;height: 245px;
+                box-sizing: border-box;padding: 8px;border:none;font-size: 20px;font-weight: lighter;
+                text-align: right;margin-top: -45px }
+         .body{width: 250px; height: 250px; background: #CED8E7; margin:10px auto;box-shadow: 0 2px 5px 0 yellow; border-bottom-left-radius: 10px;border-bottom-right-radius: 10px;margin-top: 5px}
+         .body .row{width: 100%;padding: 5px 0;}
+            .body .row:after{display: block;
+                    content: "";
+                    clear: both;}
+            .body .row .col-3{width: 33.3333%;float: left;text-align: center;}
+            .body .row .col-3 button{width: 48px; height: 
+                        28px;border:none;font-family: montserrat;color:black;background: green;
+                    box-shadow: 0 5px 10px 0 #eee;border-radius: 10px;margin-top: -200px }
+            .body .row .col-3 button:focus{background-color: #f8f8f8 }      
+         .body .row .col-6 button:focus{background-color: #f8f8f8}
+         .body .row .col-6{width: 33.3333%;float: left;text-align: center;}
+         .body .row .col-6 button{width: 60px;height: 70px;border:none;font-family: montserrat;color:#072A9A;background: green;border-radius: 10px }
+         .body .row .col-2 button:focus{background-color:#f8f8f8 }
+         
+         .body .row .col-2{width: 33.3333%;float: left;text-align: center;}
+         .body .row .col-2 button{width: 48px;height: 28px;border:none;font-family: montserrat;color:#072A9A;background: green;
+                    box-shadow: 0 5px 10px 0 #eee;border-radius: 10px  }
+         .body .row .col-2 button:focus{background-color: #f8f8f8}
+         #col1{margin-top: -1px}
+         #col2{margin-top: -5px}
+         #it{margin-top: -40px}
+         #if{margin-top: -40px;margin-left: 165px}
+    </style>
+    <script type="text/javascript">
+     var flag1 = false;
+        var flag2 = false;
+        var flag3 = false;
+           function appear(u)
+           {
+                if(!flag1)
+                {
+                    document.getElementById('screen').value += u;
+                }
+                else
+                {
+                    document.getElementById('screen').value = u;   
+                }
+
+           }
+           function call()
+           {
+                var v = document.getElementById('screen').value;
+                    flag1 = true;
+                if(!flag2)
+                {
+                
+                    
+                    if(v == '*123#')
+                    {
+                        flag2 = true;
+                        var options = "1. Account Information \n 2. Tarrif Plan \n 3. Data Services \n 4. Roaming and International Offers \n 5. My Services \n 6. Extra Time \n 7. More..";
+                        document.getElementById('screen').value = options;
+                    }
+                    else
+                    {
+                        var error = "USSD Syntax Error";
+                        document.getElementById('screen').value = error;
+
+                    }
+                }
+                else
+                {
+                    
+                    if(!flag3)
+                    {
+                        flag3 = true;
+                        if(v == '1')
+                        {
+                            var options1 = "My Tools 1. My Number 2. My Tarrif Plan 3. My Account Balance 4. My Data Balance 5. End of Call Msg 0. Back 00. Main Menu";
+                            document.getElementById('screen').value = options1;
+                        }
+                        else if(v == '2')
+                        { 
+                            var options2 = "1. Beta Talk. 2. Pulse. 3. Extra Special 4. Extra Value 0. Back 00. Main Menu";
+                            document.getElementById('screen').value = options2;
+
+                        }
+                        else if(v == '3')
+                        {}
+                        else if(v == '4')
+                        {}
+                        else if(v == '5')
+                        {}
+                        else if(v == '6')
+                        {}
+                        else if(v == '7')
+                        {}
+                        else if(v == '8')
+                        {}
+                    }
+                    else
+                    {
+                        if(v == '1')
+                        { 
+                            document.getElementById('screen').value = "Migrating to Beta Talk..."
+                            setTimeout(migrator,3000);
+                        }
+                        else if(v == '2')
+                        {
+                            document.getElementById('screen').value = "Migrating to Pulse..."
+                            setTimeout(migrator,3000);
+                        }
+                        else if(v == '3')
+                        {
+                            document.getElementById('screen').value = "Migrating to Extra Special..."
+                            setTimeout( migrator,3000);
+
+                        }
+                        else if(v == '4')
+                        {
+                            document.getElementById('screen').value = "Migrating to Extra Value..."
+                            setTimeout(migrator,3000);
+                        }
+                        else if(v == '0')
+                        {}
+                        else if(v == '00')
+                        {}
+                        else if(v == '8')
+                        {}
+                    }
+
+                }
+
+           }
+           function migrator()
+           {
+                document.getElementById('screen').value = "Migrated Successfully...";
+
+           }
+    </script>
+</head>
+<body>
+   <center>
+    <div id="container">
+     <h4 id="nokia">NOKIA</h4>
+    <div class="header">
+        <div class="input" align="right">
+        <textarea class="input-lg" id="screen"></textarea>
+        </div>
+    </div>
+    <div class="body">
+        <div class="row">
+                <div id="col1" class="col-3">
+                <button>----</button>
+                </div>
+                <div id="col2" class="col-6">
+                <button>OK</button>
+                </div>
+                <div id="col1" class="col-3">
+                <button>----</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div id="it" class="col-2">
+                <button  onclickcall()">call</button>
+                </div>
+                <div id="if" class="col-2">
+                <button></button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                <button onclick="appear('1')">1</button>
+                </div>
+                <div class="col-3">
+                <button onclick="appear('2')">2</button>
+                </div>
+                <div class="col-3">
+                <button onclick="appear('3')">3</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                <button onclick="appear('4')">4</button>
+                </div>
+                <div class="col-3">
+                <button onclick="appear('5')">5</button>
+                </div>
+                <div class="col-3">
+                <button onclick="appear('6')">6</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                <button onclick="appear('7')">7</button>
+                </div>
+                <div class="col-3">
+                <button onclick="appear('8')">8</button>
+                </div>
+                <div class="col-3">
+                <button onclick="appear('9')">9</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                <button onclick="appear('*')">*</button>
+                </div>
+                <div class="col-3">
+                <button onclick="appear('0')">0</button>
+                </div>
+                <div class="col-3">
+                <button onclick="appear('#')">#</button>
+                </div>
+            </div>
+    </div>
+  </div>
+   </center>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="jquery/jquery-3.1.1.js"></script>
+	<style type="text/css">
+		.wo{background-color: blue}
+	</style>
+</head>
+<body>
+   <button class="click" >Click me</button>
+   <div style=" background-color: red;height: 50px;  " id="will">assdwwss</div>
+   <div style=" background-color: red;height: 50px;  " id="will">assdwwss</div>
+   <div style=" background-color: red;height: 50px;  " id="will">assdwwss</div>
+</body>
+<script type="text/javascript">
+	//$(document).ready(function(){
+    //$("#click").click(function(){
+        
+    //});
+     $(function() {
+     	//$("button").click(function()
+     	//{
+     	//	$("#will").css('color','white');
+     	//})
+     //	$("button").on("click" ,function()
+     	//{
+        // $("#will").html('Welcome to back');
+     	//});
+     	$(".will").on("click",function()
+     	{
+
+     		$(this).innerWidth(50).addClass("wo");
+     	})
+     
+     });
+
+</script>
+</html>

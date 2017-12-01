@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>layers</title>
+	<style type="text/css">
+		.layer1,.layer2,.layer3{width: 200px;
+			height: 200px;
+			border:solid 1px red;}
+
+	  .layer1{position: relative;
+	  	background-color: red;
+	  	z-index: 0}
+
+	  	.layer2{position: relative;
+	  		left:150px;
+	  		top: -150px;
+	  		background-color: #0000ff;
+	  		z-index: 2}
+
+	  		.layer3{position: relative;
+	  		left:250px;
+	  		top: -250px;background-color: #00ff00;
+	  		z-index: 1}
+	</style>
+</head>
+<body>
+   <div class="layer1"></div>
+   <div class="layer2"></div>
+   <div class="layer3"></div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="jquery/jquery-3.1.1.js"></script>
+	
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			$("input").click(function()
+			{
+				var x =document.getElementById('pbtn').value;
+				if (x=="ON") 
+				{
+                 $(this).removeClass("on").addClass('off');
+                 document.getElementById('pbtn').value="OFF";
+				}
+				if(x=="OFF")
+				{
+				 $(this).removeClass("off").addClass('on');
+                 document.getElementById('pbtn').value="ON";	
+				}
+				
+			})
+			
+		})
+	</script>
+	<style type="text/css">
+		.on{background-color: red;color: white}
+		.off{background-color: blue;color: white}
+	</style>
+</head>
+<body class="bg-faded">
+     <div class="container">
+    <input type="button" name="" id="pbtn" value="ON">
+    </div>
+</body>
+</html>

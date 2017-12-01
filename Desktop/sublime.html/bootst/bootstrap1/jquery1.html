@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="jquery/jquery-3.1.1.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			$("#hello").click(function(event)
+			{
+				//alert('Welcome');
+				//$(".finish").removeClass('set');
+				$(this).hide('slow');
+			})
+			
+		})
+	</script>
+	<style type="text/css">
+		.set{background-color: red;width: 100px}
+	</style>
+</head>
+<body>
+     <button id="hello">Click me</button>
+     <div class="finish">welcome</div>
+</body>
+</html>

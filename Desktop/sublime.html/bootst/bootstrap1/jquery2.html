@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="jquery/jquery-3.1.1.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			$("input").click(function()
+			{
+				
+				$(".on").addClass('on');
+				$(".on").addClass('off');
+				
+			})
+			
+		})
+	</script>
+	<style type="text/css">
+		.on{background-color: red;color: white}
+		.off{background-color: blue;color: white}
+	</style>
+</head>
+<body>
+    <input type="button" name="name" value="on" class="on">
+</body>
+</html>

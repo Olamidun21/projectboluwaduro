@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+	<script src="bootstrap/jquery-3.1.1.js"></script>
+	<script src="bootstrap/js/bootstrap.js"></script>
+</head>
+<body>
+    <p><br></p>
+    <div class="container">
+    	<form data-toggle="validator" role="form">
+    		<div class="form-group">
+    		<label for="inputName" class="control-label">Name</label>
+    		<input type="text" name="" class="form-control" id="inputName" placeholder="Cina Saffary" required>	
+    		</div>
+    		<div class="form-group has-feedback">
+    			<label for="inputTwitter" class="control-label">Twitter</label>
+    			<div class="input-group">
+    				<span class="input-group-addon">@</span>
+    				<input type="text" name="" pattern="^[A-Z0-9]{1,}$" maxlength="15" class="form-control" id="inputTwitter" placeholder="1000hz" required>
+    			</div>
+    			<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+    			<span class="help-black with-error">Hey look,this one has feedback icons!</span>
+    		</div>
+    		<div class="form-group">
+          <label for="inputEmail" class="control-label">Email</label> 
+          <input type="email" class="form-control" id="inputEmail" placeholder="Email" data-error="Bruth,that email address is invalid" required>
+           <div class="help-block with-errors"></div>    
+            </div>
+            <div class="form-group">
+                <label for="inputPassword" class="control-label">Password</label>
+                <div class="row">
+                <div class="form-group col-sm-6">
+                    <input type="text" name="" data-minlength"6" class="form-control" id="inputPassword" placeholder="Password" required>
+                    <span class="help-block"> Minimum of 6 charcaters</span>
+                </div>
+                <div class="form-group col-sm-6">
+                    <input type="password" data-match="#inputPassword" data-match-error="Whoops, these don't match" class="form-control" id="inputPasswordConfirm" placeholder="Confirm">
+                    <div class="help-block with-errors"></div>
+                </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="radio">
+                    <label><input type="radio" name="underwear" required>Boxers</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="underwear" required>Briefs</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label><input type="checkbox" id="terms" data-error="Before you wreek yourself" required >Check yourself</label>
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+            <div class="form-group"><button type="submit" class="btn btn-primary">submit</button></div>
+    	</form>
+    </div>
+</body>
+</html>

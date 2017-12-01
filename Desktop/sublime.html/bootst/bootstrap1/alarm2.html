@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+</head>
+<body><fieldset>
+   <table><legend>Alarm</legend>
+   	<tr><td><input type="text" id="chr" name=""></td>
+   	<td><input type="text" id="cmin" name=""></td>
+   	<td><input type="text" id="csec" name=""></td></tr>
+    <tr><td><input type="text" id="uhr" name=""></td>
+   	<td><input type="text" id="umin" name=""></td>
+   	<td><input type="text" id="usec" name=""></td></tr>
+     <tr><td><input type="button" onclick="setv()" name="" value="Set alarm"></td></tr>
+   	</fieldset>  
+     </table>
+     <script type="text/javascript">
+  
+     function dis() {
+     	        var d = new Date();
+			      	var chr = d.getHours();
+      		    var cmin = d.getMinutes();
+      		    var csec = d.getSeconds();
+              var dat=uhr+':'+umin+':'+usec;
+              var dat2v=chr+':'+cmin+':'+csec;
+       document.getElementById('chr').value=chr;
+			 document.getElementById('cmin').value=cmin;
+			 document.getElementById('csec').value=csec;
+        if (dat2v==dat) {
+        alert();
+       }
+     }
+
+           setInterval(dis,1000);  
+
+             function setv()
+    {
+      var uhr=document.getElementById('uhr').value;
+      var umin=document.getElementById('umin').value;
+      var usec=document.getElementById('usec').value;
+      {
+        alert(uhr+':'+umin+':'+usec);
+      }
+      
+      
+    }    
+     </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <script type="text/javascript" src="jquery/jquery-3.1.1.js"></script>
+  <style type="text/css"> 
+  .time{
+    border-width: 0px;
+  }
+  select{
+    width: 30%
+  }
+    </style>
+  
+  <script type="text/javascript">
+    var audio;
+    var set=0;
+    var state = false;
+      
+    
+  
+    function setv()
+    {
+      var hr2=document.getElementById('hour2').value;
+      var min2=document.getElementById('min2').value;
+      var sec2=document.getElementById('sec2').value;
+      if (hr2<10) 
+        hr2='0'+hr2;
+      if(min2<10)min2='0'+min2;
+      if(sec2<10)sec2='0'+sec2;
+      document.getElementById('d2').value=hr2+':'+min2+':'+sec2;
+      set=1;
+      document.getElementById('msg').innerHTML='Alarm is ON';
+    }
+    function dis()
+
+       {
+        var d = new Date();
+        var hr = d.getHours();
+              var min = d.getMinutes();
+              var sec = d.getSeconds();
+             if (hr<10)hr='0'+hr;
+         if(min<10)min='0'+min;
+         if(sec<10)sec='0'+sec;
+       document.getElementById('hour').value=hr;
+       document.getElementById('min').value=min;
+       document.getElementById('sec').value=sec;
+       var dat2v=document.getElementById('d2').value;
+
+       var dats=hr+':'+min+':'+sec;
+       
+       if(dat2v==dats && set)
+        state=200;
+        while(state==200)
+       {
+        var state= document.getElementById('resp').value;
+        var state=true;
+                {
+        alert(document.getElementById('d2').value);
+          }
+          audio= new Audio('Hasibunalha.mp3');
+        audio.play();
+        if (state==200) {
+          audio.pause();
+        }
+        set=0;
+        document.getElementById('msg').innerHTML="Alarm is OFF"
+       
+
+        }
+               
+       setInterval(dis,1000);
+      }
+      function prtsel(x)
+      {
+        for(var i=0;i<x;i++)document.write("<option value="+i+">"+i+"</option>");
+        
+      }
+    $(document).ready(function(){
+    {
+        $("#response").hide();
+    };
+    $("#res").click(function(){
+        $("#response").show();
+    });
+    $("#respo").click(function(Event){
+        $(".response").hide(  );
+    });
+  });
+    
+
+    
+  </script>
+</head>
+<body onload="dis()">
+<div id="response" class="response">Pls solve this question 8*5*5<br>
+    <input id="resp"  type="text" name="text" value="200">
+    <button id="respo">Stop Alarm</button></div>
+  <table align="center" width="45%">
+      <tr><td>
+    
+    
+    <input type="text" id="d2" name="d2">
+    <input type="text" id="hour" name="hour" size="1" class="time">:
+    <input type="text" id="min" name="min" size="1" class="time">:
+    <input type="text" id="sec" name="sec" size="1" class="time">:
+    <br>
+    <select id="hour2" name="hour2" onChange="setv()">
+      <script type="text/javascript"> prtsel(25);</script>
+    </select><br>
+    <select id="min2" name="min2" onChange="setv()">
+      <script type="text/javascript">prtsel(61);</script>
+    </select><br>
+    <select id="sec2" name="sec2" onChange="setv()">
+      <script type="text/javascript">prtsel(61);</script>
+    </select>
+    <div id="msg">Alarm is OFF</div>
+    <button id="res" onclick="repos()">Kill Alarm</button>
+     </td></tr></table>
+
+      </body>
+
+</html>

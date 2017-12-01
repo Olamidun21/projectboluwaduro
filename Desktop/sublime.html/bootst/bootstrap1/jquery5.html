@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+	
+	<script type="text/javascript" src="jquery/jquery-3.1.1.js"></script>
+	<title></title>
+	<style type="text/css">
+		#check{
+			color: red
+		}
+		#del{
+			color: green
+		}
+		h4{
+			margin-left: 60%
+		}
+	</style>
+</head>
+<body>
+     <table border="1" style="width:80%" class="table">
+     <tr >
+     <th>Fisrtname</th>
+     <th>Lastname</th>
+     <th>Number</th>
+     </tr>
+     </table>
+     <button class="btn btn-success"" id="add">Add line</button>
+     <button class="btn btn-danger" class="del" id="del">delete all line</button>
+      <h4>Total:<input type="text" name="" placeholder=""></h4>
+      
+</body>
+<script type="text/javascript">
+	$("#add").on("click",function()
+     	{
+     		
+     		var x="<tr><td class='fir'><input placeholder='Fisrtname' id='input' class='form-control first'></td><td class='sec'><input  placeholder='Lastname' id='input' class='form-control last' ></td><td class='number'><input id='input'  placeholder='01432'  class='form-control num'></td><td><button  class='btn btn-primary btn hover glyphicon glyphicon-trash' id='trash'>trash</button></td><td ><button class='btn btn-primary btn hover glyphicon glyphicon-check' id='check'>check</button></td><td ><button class='btn btn-primary btn hover glyphicon glyphicon-edit edit' id='edit'>edit</button></td></tr>";
+     		$("table").append(x);
+
+     	});
+	$(document).ready(function(){
+    $("#del").click(function(){
+        $('td').remove();
+    });
+})
+	
+	$(document).on("click","#trash",function()
+    {
+        $(this).closest('tr').remove();
+    });
+    $(document).on("click","#edit",function()
+            {
+                var x =$(this).closest('tr').find('.fir').html();
+                var y =$(this).closest('tr').find('.sec').html();
+                 var z =$(this).closest('tr').find('.number').html();
+                $(this).closest('tr').find('.fir').html("<input type='text' value='"+x+"' class='form-control first'>");
+                $(this).closest('tr').find('.sec').html("<input type='text' value='"+y+"' class='form-control last'>");
+                $(this).closest('tr').find('.number').html("<input type='text' value='"+z+"' class='form-control num'>");
+            });
+            $(document).on("click","#check",function()
+            {
+                var x = $(this).closest('tr').find('.first').val();
+                $(this).closest('tr').find('.first').remove();
+                $(this).closest('tr').find('.fir').html(x);
+                var y = $(this).closest('tr').find('.last').val();
+                $(this).closest('tr').find('.last').remove();
+                $(this).closest('tr').find('.sec').html(y);
+                var z = $(this).closest('tr').find('.num').val();
+                $(this).closest('tr').find('.num').remove();
+                $(this).closest('tr').find('.number').html(y);
+                // alert($(this).closest(:text').val())
+                // $('input').closest('input').hide();
+
+            });
+            $(document).on("click","#check",function(){
+                $(this).hide();
+                
+            })
+            $("#edit").on(function(){
+                $(this).hide();
+                
+            })
+           // $(function(){
+             //  $("#del").hide();  
+          //});
+           // $(document).on("click","#edit",function(){
+            //    $("#check").show();
+                
+            //})
+             $(document).on("onclick","#edit",function(){
+    
+        $(this).hide();
+         });
+            
+
+   //$(document).on("click","#check",function()
+   // {
+   //     $('input').remove();
+    //});
+    //$(document).on("click","#edit",function()
+    //{
+    //    $('input').show();
+    //});
+</script>
+    </html>

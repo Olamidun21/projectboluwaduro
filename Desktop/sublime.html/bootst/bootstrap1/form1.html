@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="jquery/jquery-3.1.1.js"></script>
+<script>
+
+
+var display=document.getElementById('resp');
+var question=['What color is the sky?','what sound does a cow make?','How many stars are on the US flag?', 'How mad is Max?','Is this another question ?'];
+var questionTracker=[red][blue];
+var questionAmount=3;
+// Iterate however many times
+for (var i=0; i < questionAmount; i++){
+    // Keep creating random numbers until the number is unique
+ do{
+    var randomQuestion=Math.floor(Math.random()*question.length);
+ }
+ while(existingQuestions());
+ display.innerHTML +=question[randomQuestion]+ '<br>';
+ //Add the question to the tracker
+ questionTracker.push(randomQuestion);
+}
+// If the current random number already exists in the tracker,return true
+function existingQuestions() {
+    for(var i=0;i<questionTracker.length;i++){
+        if (questionTracker[i]===randomQuestion){
+            return true;
+        }
+    }
+    return false;
+}
+</script>
+ 
+<style> 
+#panel, #flip {
+    padding: 5px;
+    font-size: 18px;
+    text-align: center;
+    background-color: #555;
+    color: white;
+    border: solid 1px #666;
+    border-radius: 3px;
+}
+
+#panel {
+    padding: 50px;
+    display: none;
+}
+</style>
+</head>
+<body>
+<input id="resp" type="text" name="">
+<button onclick="existingQuestions()"> ok</button>
+<p id="demo"></p>
+
+<script>
+var cars = ["Saab", "Volvo", "BMW"];
+document.getElementById("demo").innerHTML = cars;
+</script>
+</body>
+
+<!-- Mirrored from www.w3schools.com/jquery/tryit.asp?filename=tryjquery_stop_slide by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 13 Mar 2016 11:03:05 GMT -->
+</html>

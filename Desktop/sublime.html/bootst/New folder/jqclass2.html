@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JQUERY CLASS 2</title>''
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+	<script src="bootstrap/css/jquery-3.1.1.js"></script>
+	<script src="bootstrap/js/bootstrap.js"></script>
+	<script src="jquery-3.1.1.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			var inc=0;
+			var t = "<tr><td class='snum'>"+inc+"</td><td class='fir'><input type='text' class='form-control first' name='first' id='first' ></td><td class='sec'><input type='text' class='form-control last'></td><td><input type='text' class='form-control serial'></td><td><button class='glyphicon glyphicon-trash danger  trash'></button><button class='glyphicon glyphicon-edit edit'></button><button class='glyphicon glyphicon-check check' value='dei'></button></td></tr>";
+			$(document).on("click",".trash",function()
+			{
+				$(this).closest('tr').remove();
+			});
+			$(document).on("click",".edit",function()
+			{
+				var x =$(this).closest('tr').find('.fir').html();
+				var y =$(this).closest('tr').find('.sec').html();
+				$(this).closest('tr').find('.fir').html("<input type='text' value='"+x+"' class='form-control first'>");
+				$(this).closest('tr').find('.sec').html("<input type='text' value='"+y+"' class='form-control last'>");
+			});
+			$(document).on("click",".check",function()
+			{
+				var x = $(this).closest('tr').find('.first').val();
+				$(this).closest('tr').find('.first').remove();
+				$(this).closest('tr').find('.fir').html(x);
+				var y = $(this).closest('tr').find('.last').val();
+				$(this).closest('tr').find('.last').remove();
+				$(this).closest('tr').find('.sec').html(y);
+				// alert($(this).closest(:text').val())
+				// $('input').closest('input').hide();
+
+			});
+
+			$("#click1").click(function() {
+				inc++;
+				$("table").append("<tr><td class='snum'>"+inc+"</td><td class='fir'><input type='text' class='form-control first' name='first' id='first' ></td><td class='sec'><input type='text' class='form-control last'></td><td><input type='text' class='form-control serial'></td><td><button class='glyphicon glyphicon-trash danger  trash'></button><button class='glyphicon glyphicon-edit edit'></button><button class='glyphicon glyphicon-check check' value='dei'></button></td></tr>").html;
+				
+			});
+			$("#click2").click(function(){
+				$("td").remove("td");
+			});
+
+			// $("td").class('glyphicon glyphicon-trash danger').click(function(){
+   //              $("td").remove("input");
+			// });
+			// $(document).on("click",".edit",function(){
+			// 	for (var i = 0; i <.length; i++) {
+			// 	[i]
+			// 	}
+			// 	$("this").closest('tr').addClass("");
+			// });
+		});
+	</script>
+	<style type="text/css">
+		
+	</style>
+</head>
+<body>
+<div class="container-fluid">
+<table class="table table-bordered">
+	<tr>
+	     <th>S\N</th>
+		<th>Firstname</th>
+		<th>Lastname</th>
+		<th>Serial No.</th>
+		<th>Action</th>
+		
+
+	</tr>
+		
+	
+</table>
+<button  class="btn " id="click1" value="add" style="background-color:green;color:wheat;">ADD NEW LINE</button>
+<button class="btn " id="click2" value="del" style="background-color:red;color:wheat;">DELETE ALL LINES</button>
+</div>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="phone.css">
+    <script>
+
+        var flag1 = false;
+        var flag2 = false;
+        var flag3 = false;
+           function butt(u)
+           {
+                if(!flag1)
+                {
+                    document.getElementById('screen').value += u;
+                }
+                else
+                {
+                    document.getElementById('screen').value = u;   
+                }
+
+           }
+           function call()
+           {
+                var v = document.getElementById('screen').value;
+                    flag1 = true;
+                if(!flag2)
+                {
+                
+                    
+                    if(v == '*123#')
+                    {
+                        flag2 = true;
+                        var options = "1. Account Information \n 2. Tarrif Plan \n 3. Data Services \n 4. Roaming and International Offers \n 5. My Services \n 6. Extra Time \n 7. More..";
+                        document.getElementById('screen').value = options;
+                    }
+                    else
+                    {
+                        var error = "USSD Syntax Error";
+                        document.getElementById('screen').value = error;
+
+                    }
+                }
+                else
+                {
+                    
+                    if(!flag3)
+                    {
+                        flag3 = true;
+                        if(v == '1')
+                        {
+                            var options1 = "My Tools 1. My Number 2. My Tarrif Plan 3. My Account Balance 4. My Data Balance 5. End of Call Msg 0. Back 00. Main Menu";
+                            document.getElementById('screen').value = options1;
+                        }
+                        else if(v == '2')
+                        { 
+                            var options2 = "1. Beta Talk. 2. Pulse. 3. Extra Special 4. Extra Value 0. Back 00. Main Menu";
+                            document.getElementById('screen').value = options2;
+
+                        }
+                        else if(v == '3')
+                        {}
+                        else if(v == '4')
+                        {}
+                        else if(v == '5')
+                        {}
+                        else if(v == '6')
+                        {}
+                        else if(v == '7')
+                        {}
+                        else if(v == '8')
+                        {}
+                    }
+                    else
+                    {
+                        if(v == '1')
+                        { 
+                            document.getElementById('screen').value = "Migrating to Beta Talk..."
+                            setTimeout(migrator,3000);
+                        }
+                        else if(v == '2')
+                        {
+                            document.getElementById('screen').value = "Migrating to Pulse..."
+                            setTimeout(migrator,3000);
+                        }
+                        else if(v == '3')
+                        {
+                            document.getElementById('screen').value = "Migrating to Extra Special..."
+                            setTimeout( migrator,3000);
+
+                        }
+                        else if(v == '4')
+                        {
+                            document.getElementById('screen').value = "Migrating to Extra Value..."
+                            setTimeout(migrator,3000);
+                        }
+                        else if(v == '0')
+                        {}
+                        else if(v == '00')
+                        {}
+                        else if(v == '8')
+                        {}
+                    }
+
+                }
+
+           }
+           function migrator()
+           {
+                document.getElementById('screen').value = "Migrated Successfully...";
+
+           }
+
+    </script>
+    <style type="text/css">
+         table {
+            border: 2px solid blue;
+            margin: 0px;
+            background-color:red;
+            border-radius: 20px;
+            border: 1px ;
+            border-collapse: collapse;
+            
+        }
+        
+        #screen {
+            width: 70%;
+            height: 250px;
+            margin: 20px 30px 25px 35px;
+            border: 2px solid;
+            border-color: brown
+            border-radius: 10px;
+        }
+        tbody{
+                    
+        }
+        
+        button {
+            width: 60px;
+            height: 30px;
+            margin-left:5px;
+        }
+        
+        .button {}
+
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <div class="col-md-3 " style="margin-left: 400px">
+            <table class="table " id="table" >
+                <tbody>     
+                    <tr>
+                        <td colspan="3" style="border: 2px blue">
+                            <textarea class="input-lg" id="screen"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><button class="btn btn-primary btn hover glyphicon glyphicon-option-horizontal" onclick="butt('option')"></button></td>
+                        <td rowspan="2"><button class="btn btn-primary btn hover" id="button" style="height: 60px;
+                     margin-top: 10px;margin-left: 5px;" onclick="butt('ok')" >OK</button></td>
+                        <td><button class="btn btn-primary btn hover glyphicon glyphicon-option-horizontal" onclick="butt('option')"></button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="btn btn-primary btn hover glyphicon glyphicon-earphone" onclick="call()"></button></td>
+
+                        <td><button class="btn btn-primary btn hover glyphicon glyphicon-off"  onclick="butt('halt')"></button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="btn btn-primary btn hover" onclick="butt('1')">1</button></td>
+                        <td><button class="btn btn-primary btn hover" onclick="butt('2')">2</button></td>
+                        <td><button class="btn btn-primary btn hover" onclick="butt('3')">3</button></td>   
+                    </tr>
+                    <tr>
+                        <td><button class="btn btn-primary btn hover" onclick="butt('4')">4</button></td>
+                        <td><button class="btn btn-primary btn hover" onclick="butt('5')">5</button></td>
+                        <td><button class="btn btn-primary btn hover" onclick="butt('6')">6</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="btn btn-primary btn hover" onclick="butt('7')">7</button></td>
+                        <td><button class="btn btn-primary btn hover" onclick="butt('8')">8</button></td>
+                        <td><button class="btn btn-primary btn hover" onclick="butt('9')">9</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="btn btn-primary btn hover glyphicon glyphicon-asterisk" onclick="butt('*')"></button></td>
+                        <td><button class="btn btn-primary btn hover" onclick="butt('0')">0</button></td>
+                        <td><button class="btn btn-primary btn hover"  onclick="butt('#')">#</button></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

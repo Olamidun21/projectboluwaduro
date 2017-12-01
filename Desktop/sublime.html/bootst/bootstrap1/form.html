@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form</title>
+	<script type="text/javascript" src="jquery/jquery-3.1.1.js"></script>
+	
+	<style type="text/css">
+		form{
+			font-family:sans-serif; 
+			font-size: 10px;
+			padding: 50px;
+			background:#9ECBFF;
+			max-width: 400px;
+			margin:100px auto 0;
+		}
+		div{
+			margin:0 0 3cm 0;
+			position: relative;
+		}
+		label{
+			font-size: 15px
+		}
+		span{
+			display: block;
+			font-size: 15px;
+			position: absolute;
+			background:#2d2c87;
+            color: #fff;
+            padding: 10px;
+            width: 180px;left: 105%;top: 10px;
+		}
+		input{
+			display: block;
+			width: 100%;
+			height: 20px;
+		}
+		input[type="submit"]{
+			background: #2f558E;
+			color: blue;
+			font-size: 2em;
+			height: 40px;
+		}
+	</style>
+</head>
+<body>
+   <form action="#" method="post">
+   <div>
+   	<label>Username:</label><br>
+   	<input type="text" name="username" id="username" placeholder="Enter username"></div>
+   	<div>
+   	<label>Password:</label><br>
+   	<input type="password" name="password" id="password" placeholder="Enter password"><br><br>
+   	<span>Enter password longer than 7 character</span></div>
+   	<div>
+   	<label>Confirm password:</label><br>  
+   	<input type="password" name="confirm_password" id="confirm_password" placeholder="Enter confirm password"><br><br>
+   	<span>please confirm your password </span></div>
+     <div id="submitBtn"><input type="submit" name="" value="SUBMIT" id="submit"></div>
+   </form>
+   <script type="text/javascript">
+		
+      $("form span").hide();
+		$("#password").keyup(errorMessgeEvent);
+        $("#confirm_password").keyup(matchPass);
+
+		function isPassValid() {
+			return $("#password").val().length>6;
+		}
+		function isPassMatching(){
+			return $("confirm_password").val()=== $("#password").val();
+		}
+
+		function errorMessgeEvent(){
+			if (isPassValid()) {
+               $(this).next().hide();
+			}
+			else{
+				$(this).next().show();
+			}
+		}
+		function matchPass(){
+			if(isPassMatching()){
+				$(this).next().hide();
+			}
+			else{
+				$(this).next().show();
+			}
+		}
+	</script>
+</body>
+</html>
