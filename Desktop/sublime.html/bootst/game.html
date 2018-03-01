@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta name="viewport" content="width=device-width" initial-scale="1">
+	<link rel="stylesheet" type="text/css" href="bootstrap4/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.css">
+	<script type="text/javascript" src="jquery/jquery-3.1.1.js"></script>
+	
+	<style type="text/css">
+	#header{
+		width: 100%;height: 600px;background-color: #f5f5f5
+	}
+		#white{
+			width: 100px;height: 70px;background-color: white;
+		}
+		#blue{
+			
+			width: 100px;height: 70px;background-color:blue;
+		
+		}
+		#u2{z-index: 9;position: relative;}
+		#head{
+			margin-left: 240px;
+			border-color:  #99003d;
+		background-color:    red;
+		background-position: fixed;
+		transform:rotate(180deg); 
+		}
+		#y{
+			background-color:  yellow;
+		border-color:  #290066;
+		border-radius: 20px;
+		width: 40px;
+		height: 40px;
+		margin-left: 30px;
+		}
+		.y{
+			background-color:  yellow;
+		border-color:  #290066;
+		border-radius: 20px;
+		width: 40px;
+		height: 40px;
+		margin-left: 30px;
+		}
+		#r{
+			background-color:  red;
+		border-color:  #290066;
+		border-radius: 20px;
+		width: 40px;
+		height: 40px;
+		margin-left: 30px;
+		}
+	</style>
+
+</head>
+<body>
+     <div id="header">
+     	<table id="head">
+     		<tr>
+     			<td id="white"></td>
+     			<td id="blue"><div id="y"></div></td>
+     			<td id="white"></td>
+     			<td id="blue"><div id="y"></div></td>
+     			<td id="white"></td>
+     			<td id="blue"><div id="y"></div></td>
+     			<td id="white"></td>
+     			<td id="blue"><div id="y"></div></td>
+     			
+     			</tr>
+
+     		   <tr >
+     			<td id="blue"><div id="y"></div></td>
+     			<td id="white"></td>
+     			<td id="blue"><div id="y"></div></td>
+     			<td id="white"></td>
+     			<td id="blue"><div id="y"></div></td>
+     			<td id="white"></td>
+     			<td id="blue"><div id="y"></div></td>
+     			<td id="white"></td>
+     			
+     			
+     			</tr>
+
+     		    <tr>
+     			<td id="white"></td>
+     			<td id="blue"><div id="u2" class="y"></div></td>
+     			<td id="white"></td>
+     			<td id="blue"><div id="y"></div></td>
+     			<td id="white"></td>
+     			<td id="blue"><div id="y"></div></td>
+     			<td id="white"></td>
+     			<td id="blue"><div id="y"></div></td>
+     			
+     			</tr>
+     			<tr >
+     			<td id="blue"></td>
+     			<td id="white"></td>
+     			<td id="blue"></td>
+     			<td id="white"></td>
+     			<td id="blue"></td>
+     			<td id="white"></td>
+     			<td id="blue"></td>
+     			<td id="white"></td>
+     			
+     			
+     			</tr>
+     			<tr>
+     			<td id="white"></td>
+     			<td id="blue"></td>
+     			<td id="white"></td>
+     			<td id="blue"></td>
+     			<td id="white"></td>
+     			<td id="blue"></td>
+     			<td id="white"></td>
+     			<td id="blue"></td>
+     			
+     			</tr>
+     			<tr >
+     			<td id="blue"><div id="r"></div></td>
+     			<td id="white"></td>
+     			<td id="blue"><div id="r"></div></td>
+     			<td id="white"></td>
+     			<td id="blue"><div id="r"></div></td>
+     			<td id="white"></td>
+     			<td id="blue"><div id="r"></div></td>
+     			<td id="white"></td>
+     			
+     			
+     			</tr>
+     			<tr>
+     			<td id="white"></td>
+     			<td id="blue"><div id="r"></div></td>
+     			<td id="white"></td>
+     			<td id="blue"><div id="r"></div></td>
+     			<td id="white"></td>
+     			<td id="blue"><div id="r"></div></td>
+     			<td id="white"></td>
+     			<td id="blue"><div id="r"></div></td>
+     			
+     			
+     			</tr>
+     			<tr >
+     			<td id="blue"><div id="r"></div></td>
+     			<td id="white"></td>
+     			<td id="blue"><div id="r"></div></td>
+     			<td id="white"></td>
+     			<td id="blue"><div id="r"></div></td>
+     			<td id="white"></td>
+     			<td id="blue"><div id="r"></div></td>
+     			<td id="white"></td>
+     			
+     			
+     			</tr>
+     	</table>
+     </div>
+     <script type="text/javascript">
+     	$(function(){
+	var seedClicked = '';
+var cellClicked = '';
+var l=0,t=0,topi=0,left=0,sTop=0,sLeft=0;
+	$("div").click(function(){
+		var sID = $(this).closest('td').find('div').attr('id');
+
+ seedClicked = $(this).closest('td').find('div').position();
+ sTop = seedClicked.top;
+ sLeft = seedClicked.left;
+ l =  sLeft - left;
+ t =  sTop - topi;
+  //alert("Seed Top: "+sTop+" Seed Left:"+sLeft);
+ //alert("Top : "+topi+ "Left : "+left);
+ //$(sID).animate({'left':'80px','top':'300px'});
+ //alert(sID);
+ $('#'+sID).animate({'left':l+'px','top':t+'px'},2000);
+ left =0;
+ topi=0;
+	})
+
+ $("td").click(function(){
+ 
+ if(topi>0)
+ {}
+ else{	
+ cellClicked = $(this).position();
+ topi = cellClicked.top;
+ left = cellClicked.left;
+ 
+ //alert("Seed Tops: "+sTop+" Seed Lefts:"+sLeft);
+ //alert("Tops : "+topi+ "Lefts : "+left);
+ }
+
+
+});
+
+ });
+     </script>
+</body>
+</html>
